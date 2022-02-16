@@ -9,24 +9,24 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path:'/',
-    redirect:'/money'
+    path: '/',
+    redirect: '/money'
   },
   {
-    path:'/money',
-    component:Money
+    path: '/money',
+    component: Money
   },
   {
-    path:'/labels',
-    component:Labels
+    path: '/labels',
+    component: Labels
   },
   {
-    path:'/statistics',
-    component:Statistics
+    path: '/statistics',
+    component: Statistics
   },
   {
-    path:'*',
-    component:NotFound
+    path: '*',
+    component: NotFound
   }
 ];
 
