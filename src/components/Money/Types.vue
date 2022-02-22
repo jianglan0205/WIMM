@@ -13,23 +13,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';//用的别人的库,@Component装饰器
+import {Component, Prop} from 'vue-property-decorator';//用的别人的库,@Component装饰器
 
-@Component({
-  props:{
-    propMessage:String
-  }
-})
+@Component
 export default class Types extends Vue {
-  type = '-'; //'-'表示支出,'+'表示收入
-  helloMsg = 'Hello,'+this.proMessage;
-
-  selectType(type: string) {//type只能是'-'和'+'中的一个
+  type = '-';   //'-'表示支出,'+'表示收入
+  selectType(type: string) {  //type只能是'-'和'+'中的一个
     if (type !== '-' && type !== '+') {
       throw new Error('type is unknown');
     }
     this.type = type;
   }
+
 }
 
 //下面是js代码
