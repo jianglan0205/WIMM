@@ -1,24 +1,13 @@
 import createId from "@/lib/idCreator";
 
 const localStorageKeyName = 'tagList';
-type Tag = {
-  id:string;
-  name:string;
-}
-type TagListModel = {
-  data:Tag[]
-  fetch:() => Tag[]
-  create:(name:string) => 'success' | 'duplicated' // 联合类型
-  update:(id:string,name:string) => 'success' | 'not found' | 'duplicated'
-  remove:(id:string) => boolean
-  save: () => void
-}
 const tagListModel : TagListModel = {
   data:[],
   fetch() {
     this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]');
     return this.data;
   },
+
   create(name:string){
     //this.data = [{id:'1',name:'1'},{id:'2',name:'2'}]
     const names = this.data.map(item => item.name);
@@ -28,6 +17,7 @@ const tagListModel : TagListModel = {
     this.save();
     return 'success';
   },
+
   update(id:string,name:string){
     const idList = this.data.map(item => item.id)
     if(idList.indexOf(id)>=0){
@@ -45,6 +35,7 @@ const tagListModel : TagListModel = {
     }
 
   },
+
   remove(id){
     let index = -1;
     for(let i = 0; i < this.data.length; i++){
