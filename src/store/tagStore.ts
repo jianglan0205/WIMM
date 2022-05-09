@@ -13,7 +13,6 @@ const tagStore = {
 
     findTag (id:string){
         return this.tagList.filter(t => t.id === id)[0];
-
     },
 
     createTag (name: string) {
