@@ -1,4 +1,4 @@
-# jizhhang
+# WIMM
 
 ## Project setup
 ```
